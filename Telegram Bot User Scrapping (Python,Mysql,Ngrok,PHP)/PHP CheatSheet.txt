@@ -1,0 +1,288 @@
+<?php  ?>
+
+
+1) Print==> echo " Hello world";
+
+2) Comment styles ==> // comment //
+
+                      # comment
+
+                      /* comment */
+
+3) case in sensitive
+
+4) case sensitive with variable names
+
+ $color = " red";
+  
+ $x = 6;
+ $y = 7.9;
+ $text= "string";
+
+
+ echo $color."<br>"; // <br> gives new line spacing 
+ echo $Color."<br>"; // undefined variable //
+ echo $x."<br>".$y."<br>".$text
+
+5) Variables declaration ==> use $type = " variable_name" ;
+
+6) Data type of a variable ==>
+
+   var_dump($variable);
+
+7) Arrays ==> $name = array("value1",value2 , "value3);
+
+   access and print ==> echo $name[index];
+
+8) Types of array 
+
+ i) index arrays
+ ii) associated arrays ==> $name = array("name1"=>"value1","name2"="value2");
+                           echo $name["name1"];
+ iii) multidimensional arrays 
+
+9) Finding elements in a array => echo count($array_name);
+
+
+10) Conditional Statements ==>
+
+        if(condition1) { }
+        elseif(condition2) {}
+        else{}
+
+11) Comparision operator ==>
+                            i) == -> equal
+                            ii) ===  -> equal and same data type (identical)
+                            iii) != -> not equal
+                            iv) <> -> not equal
+                             v) !== -> not identical
+                            vi) >=,<=,<,> 
+
+12) switch case ==>
+                        switch($variable) { case "value1": code break; 
+                                           case "value2": code break;
+                                           default case : code break; }
+
+13) while loop ==>
+                       while(condition) {}
+
+14) for loop ==>
+                  for(intializer ; condition ; incr/dcr ) {}
+
+
+15) Foreach loop ==> work with arrays 
+
+               $names = array("ram","shayam","mohan") ;
+
+               foreach($names as $name) {echo $name."<br>" ; }
+
+               $names = array("ram"=>16,"shayam"=>17,"mohan"=>18) ;
+
+               foreach($names as $name=> $age) {echo " name: ".$name." age ".$age."<br>" ; }
+
+
+16) Pre defined constant ==> define("him","i am him") ;
+                             echo him;
+                             echo PHP_OS;
+                             echo PHP_VERSION;
+                             echo __dir__;
+                             echo __FILE__;
+
+17) Functions ==>
+                    function name() {}  ==> declaration
+                    name() ; ==> calling 
+                    function name( $var1,$var2) {}
+                    name(4,5);
+
+18) Global Variable ==>
+                        accessing outside variable inside another functions .
+
+                        $GLOBALS['var_name'];  or global $var;
+
+
+19) Math functions ==> pow(base,exponent);
+                       rand(x,y);
+                       sqrt(x);
+                       round(x);
+                       ceil(x);
+                       floor(x);
+
+
+20) String functions ==> 
+                         strlen($var);
+                         strrev($var);
+                         strtoupper($var);
+                         strtolower($var);
+                         trim($var);
+                         implode($var);
+
+
+21) Multidimensional Arrays ==> $name = array(array(),array(),array());
+
+
+22) Timestamp => echo time();
+
+23) Date ==> echo date("y-m-d");
+             echo date("Y-M-D");
+             echo date("Y-M-d l | h:i:s a");
+             print_r(getdate(time()));
+
+24) File Handling ==>
+
+                    $f = "path/to/file/filename.txt";
+                    file_exists($f);
+
+                    echo basename($f); ==> return file name
+
+                    echo mkdir(path/name); ==> making directory .
+
+                    include "path/to/file/filename.php" ;
+                    printt();
+                    include "../finame.php";
+                    
+                    require "../filename.php"
+                    echo "text";
+
+25) CRUD DB reading ==>
+
+                     i) Database connection checking =>
+ 
+                                            $db=mysqli_connect("localhost","root","","botty") or die("error");
+
+                                            if($db){ echo "connected";}
+
+                                            else { echo "not connected"; }
+
+                                            echo mysqli_connect_error();
+
+                     2) Reading ==>
+                                            $db=mysqli_connect("localhost","root","","botty") or die("error");
+
+                                            $q="select * from user";
+
+                                            $tmp=mysqli_query($db,$q);
+
+                                            $result = mysqli_fetch_all($tmp);
+                                            $result = mysqli_fetch_array($tmp);
+
+                                            echo "<pre>";
+                                            print_r($result);
+                                            echo "<pre>";
+
+
+                    3) Writing ==>          $db=mysqli_connect("localhost","root","","botty") or die("error");
+
+                                            $q="INSERT INTO user(id,name,surname,age)VALUES('4','vin','sin','26') ";
+ 
+                                            $tmp=mysqli_query($db,$q);
+
+                                            var_dump($tmp);
+
+
+26) $_GET['user'].$_GET['pass'] ==> print user details like email /password but visible to all. (web address ? user="name")
+
+27) $_POST[] ==> can be used bcz resove problem of unconfidentiality.
+
+28) https://api.telegram.org/bot<token>/method_name. ==<return a json object
+
+29) Webhook setup ==> https://api.telegram.org/bot<token>/setWebhook?url=<nrgrok server>/path/to/phpfile.php
+
+30) Getting bot data in text file.
+
+                              $var = file_get_contents("php://input");
+                              file_put_contents("json.txt",$var);
+
+31) json decode ==> 
+                             $var ="json_code_from_txt";
+                             $var2 = json_decode($var,true);
+                             echo."<pre>"
+                             print_r($var2);
+                             echo."<pre>"
+
+32) json encode ==>          $var = array(array(),array(),array());
+                             echo $var2 = json_encode($var);
+
+33) Selection of id and name ==>
+                             
+                             $f= file_get_contents("php://input");
+                             $var= json_decode($f,true);
+                             $username = $var['message']['from']['username'];
+                             $user_id = $var['message']['from']['id'];
+                             $first_name = $var['message']['from']['first_name'];
+                             file_put_contents("json.txt",$username.' '.$first_name.' '.$user_id.PHP_EOL,FILE_APPEND);
+
+34) Sending Auto Reply ==>
+                             $f= file_get_contents("php://input");
+                             $var= json_decode($f,true);
+                             define("token","");
+                             $api_url ="https://api.telegram.org/bot".token."/";
+                             $ch_id= $var['message']['chat']['id'];
+                             $var=file_get_contents($api_url."sendMessage?chat_id=".$ch_id."&text=hello_user");
+
+
+35) Message Forwarding ==>
+                             $f= file_get_contents("php://input");
+                             $var= json_decode($f,true);
+                             $msg_id= $var['message']['message_id'];
+                             $ch_id= $var['message']['chat']['id'];
+                             file_put_contents("json.txt",$f);
+                             define("token","");
+                             $api_url ="https://api.telegram.org/bot".token."/";
+                             $res=file_get_contents($api_url."forwardMessage?chat_id=&from_chat_id=".$ch_id."&message_id=".$msg_id);
+
+
+16) Sending a Photo ==>
+                            $f= file_get_contents("php://input");
+                            $var= json_decode($f,true);
+                            file_put_contents("result.txt",$f.PHP_EOL.PHP_EOL,FILE_APPEND);
+                            $ch_id= $var['message']['chat']['id'];
+                            $photo = $var['message']['photo'][2]['file_id'];
+                            define("token","");
+                            $api_url ="https://api.telegram.org/bot".token."/";
+                            $res=file_get_contents($api_url."sendPhoto?chat_id=".$ch_id."&photo=".$photo);
+                            file_put_contents("result2.txt",$res.PHP_EOL.PHP_EOL,FILE_APPEND); 
+                            
+
+17) Sending a Audio ==>    $f= file_get_contents("php://input");
+                           $var= json_decode($f,true);
+                           file_put_contents("result.txt",$f.PHP_EOL.PHP_EOL,FILE_APPEND);
+                           $ch_id= $var['message']['chat']['id'];
+                           $audio = $var['message']['audio']['file_id'];
+                           define("token","");
+                           $api_url ="https://api.telegram.org/bot".token."/";
+                           $res=file_get_contents($api_url."sendAudio?chat_id=".$ch_id."&audio=".$audio);
+                           file_put_contents("result2.txt",$res.PHP_EOL.PHP_EOL,FILE_APPEND);
+
+
+18) Sending a video ==>    $f= file_get_contents("php://input");
+                           $var= json_decode($f,true);
+                           file_put_contents("result.txt",$f.PHP_EOL.PHP_EOL,FILE_APPEND);
+                           $ch_id= $var['message']['chat']['id'];
+                           $video = $var['message']['video']['file_id'];
+                           define("token","");
+                           $api_url ="https://api.telegram.org/bot".token."/";
+                           $res=file_get_contents($api_url."sendVideo?chat_id=".$ch_id."&video=".$video);
+                           file_put_contents("result2.txt",$res.PHP_EOL.PHP_EOL,FILE_APPEND);
+
+
+20) Send Location ==>     $f= file_get_contents("php://input");
+                          $var= json_decode($f,true);
+                          file_put_contents("result.txt",$f.PHP_EOL.PHP_EOL,FILE_APPEND);
+                          $ch_id= $var['message']['chat']['id'];
+                          define("token","");
+                          $api_url ="https://api.telegram.org/bot".token."/";
+                          $res=file_get_contents($api_url."sendLocation?chat_id=".$ch_id."&latitude=28.8743757&longitude=77.0889183");
+                          file_put_contents("result2.txt",$res.PHP_EOL.PHP_EOL,FILE_APPEND);
+
+21) Getting User Profiles=>
+                          $f= file_get_contents("php://input");
+                          $var= json_decode($f,true);
+                          file_put_contents("result.txt",$f.PHP_EOL.PHP_EOL,FILE_APPEND);
+                          $user_id= $var['message']['chat']['id'];
+                          define("token","");
+                          $api_url ="https://api.telegram.org/bot".token."/";
+                          $res=file_get_contents($api_url."getUserProfilePhotos?user_id=".$user_id);
+                          file_put_contents("result2.txt",$res.PHP_EOL.PHP_EOL,FILE_APPEND);      
+
+
+
